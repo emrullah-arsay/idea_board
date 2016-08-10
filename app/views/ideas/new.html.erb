@@ -1,1 +1,17 @@
-<h1>Hello <%=@name %></h1>
+<% if @idea.errors.any? %>
+<h3><%= @idea.errors.full_messages.join(", ")%></h3>
+<% end -%>
+
+
+<form action="<%=ideas_path%>" method="post">
+	 <p>title:    <input type="text" name="title" ></p>
+     <p>description
+      <textarea rows="4" cols="50" name="description"></textarea> 
+	 </p>
+     <p>planned_to<input type="text" name="planned_to" > </p><br>
+     <button type="submit">Send</button>
+
+
+
+
+</form>
