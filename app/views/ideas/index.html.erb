@@ -1,7 +1,9 @@
 <h2>List of all ideas</h2>
 <% @ideas.each do |idea| %>
 <hr>	
-  <b>Title:</b> <h4> <%= idea.title%></h4>
+  <h4> <a href="/ideas/<%= idea.id %>"> <%= idea.title%></a> </h4>
   <p> <%= idea.description%></p> 
 <hr>	
 <%end%>
+<br>
+<a href="/ideas">Back</a>
