@@ -20,9 +20,11 @@ class Idea < ApplicationRecord
 		end
 	end
 
-
-	def category
+    belongs_to :category 
+=begin
+	 def category     # identical with belongs_to :category 
 		Category.find(category_id)
 		# Category tablosuna erişiyorz..istedigim tabloyo bu seklide erişvbişrzz
-	end
+	 end
+=end
 end
