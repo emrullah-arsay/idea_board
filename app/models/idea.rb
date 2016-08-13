@@ -19,4 +19,10 @@ class Idea < ApplicationRecord
 			errors.add(:planned_to,"Kafanmı Güzel.")
 		end
 	end
+
+
+	def category
+		Category.find(category_id)
+		# Category tablosuna erişiyorz..istedigim tabloyo bu seklide erişvbişrzz
+	end
 end

@@ -7,7 +7,7 @@
    <h4><b>T: </b>  <%= link_to idea.title, idea %> </h4>
    <p> <b>Dsc: </b> <%= idea.description%></p> 
    <p><b>Dt: </b>  <%= idea.planned_to%></p> 
-    <p><b>C: </b>  <%= idea.category_id%></p> 
+    <p><b>C: </b>  <%= idea.category.title%></p> 
   <%= link_to "edit",edit_idea_path(idea) %>
   <%# <%= link_to 'delete', idea_path(@idea.id) ,method: :delete%>
 

@@ -3,14 +3,14 @@ class IdeasController < ApplicationController
 
 	def new
 		@idea = Idea.new
-		@categories= Category.all.collect{|c| [c.title , c.id]}
+		set_categories	
 	end
 	def index
 		@ideas = Idea.all.order(id: :desc)
 	end
 
 	def  show
-	 	
+	 	#@category =  Category.find(@idea.category_id)
 	end
 	
 	def create
@@ -19,12 +19,13 @@ class IdeasController < ApplicationController
 			#flash[:succes] = "Idea was succesfully created.."
 			redirect_to @idea , notice: "Idea was succesfully created.."
 		else
+			set_categories
 			render :new
 		end
 	end
 
 	def edit
-		
+		set_categories
 	end
 
 	def update
@@ -32,6 +33,7 @@ class IdeasController < ApplicationController
 		if @idea.update(idea_params)
 			redirect_to @idea
 		else
+			set_categories
 			render :edit
 		end
 
@@ -43,6 +45,11 @@ class IdeasController < ApplicationController
 	end
 
 	private
+	def set_categories
+		@categories= Category.all.collect{|c| [c.title , c.id]}
+		# tüm kategorileri @categories içine atıyoruz ve formdaki dropdown da cekiyoruzz
+	end
+
 	def set_idea
 		@idea = Idea.find(params[:id])
 	end
