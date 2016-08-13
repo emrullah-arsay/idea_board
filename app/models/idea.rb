@@ -13,7 +13,7 @@ class Idea < ApplicationRecord
 	validates :title, presence: true,length: { minimum: 10}   
 	validates :description, presence: true
 	validate  :check_planned_to 
-
+	
 	def check_planned_to
 		if planned_to.present?  && planned_to < Date.today
 			errors.add(:planned_to,"Kafanmı Güzel.")

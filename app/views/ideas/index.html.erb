@@ -1,17 +1,20 @@
-<h2>List of all ideas</h2>
-<a href=/ideas/new>New</a> 
+<h2 style="text-align:center">List of all ideas</h2>
+<p  style="text-align:center"><a href=/ideas/new>New</a> </p> 
+
+<%= render "flash" %>
 <% @ideas.each do |idea| %>
 <hr>	
-  <h4> <a href="<%= idea_path(idea) %>">
- 	 <%= idea.title%></a> </h4>
-  <p> <%= idea.description%></p> 
+   <h4><b>T: </b>  <%= link_to idea.title, idea %> </h4>
+   <p> <b>Dsc: </b> <%= idea.description%></p> 
+   <p><b>Dt: </b>  <%= idea.planned_to%></p> 
+    <p><b>C: </b>  <%= idea.category_id%></p> 
+  <%= link_to "edit",edit_idea_path(idea) %>
+  <%# <%= link_to 'delete', idea_path(@idea.id) ,method: :delete%>
+
 <hr>	
 <%end%>
 <br>
  
-
-
-
 
 
 
