@@ -1,0 +1,24 @@
+<h4 style="text-align:center"> <%= @idea.title%></h4>
+
+<%#  <% if flash[:notice] %>
+ <hr>
+ <%= render "flash" %>
+    <div class="notice" style="color:green"><%#= flash[:notice] %></div>
+ <%#  <% end %>
+<hr>	
+    <p><b>Description :</b> <%= @idea.description%></p> 
+    <p><b>Plan Time :</b> <%= @idea.planned_to%></p> 
+    <p><b>Category: </b>  <%= @idea.category.title%></p> 
+<hr>	
+<br>
+<a href="/ideas">Back</a> /
+<a href=<%= edit_idea_path  %>>Edit</a> /
+<%= link_to 'Delete', @idea ,method: :delete%>
+
+<!--
+<form method="post" action="<%= idea_path(@idea) %> ">
+	<input type="hidden" name="authenticity_token" value="form_authenticity_token">
+	<input type="hidden" name="_method" value="delete">
+	<button type="submit" name="button">Delete</button>
+</form>
+-->
